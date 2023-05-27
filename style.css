@@ -1,6 +1,36 @@
 body {
     background-color: #f6f2e9;
     height: 100vh;
-    display: :flex;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 412px;
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.score_box{
+    background-color: #c8bdae;
+    border: 1px solid #baab9f;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.score_title {
+    display: block;
+    color: #f2e3da;
+}
+
+.score{
+    
 }
