@@ -1,4 +1,4 @@
-const scoreElement = document.querySelector('.score');
+const scoreEl = document.querySelector('.score');
 
 document.addEventListener("DOMContentLoaded", () => {
     const board = document.querySelector(".game_board");
@@ -204,18 +204,11 @@ function moveRight() {
             renderBoard();
         }
     });
-  
-  
-      if (moved) {
-        addRandomTile();
-        renderBoard();
-      }
-    });
-  
+
     // Start the game
     initializeBoard();
     addRandomTile();
     addRandomTile();
     renderBoard();
-  });
+    });
   
