@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       return colors[value] || "#cdc1b4";
     }
+
+    let score = 0; // Variable to keep track of the score
     // Check if the game is over
     function isGameOver() {
         for (let i = 0; i < size; i++) {
@@ -239,6 +241,21 @@ function moveRight() {
             renderScore();
         }
     });
+
+    const newGameButton = document.getElementById("new_game_btn");
+
+  // Reset the game
+  function resetGame() {
+    initializeBoard();
+    addRandomTile();
+    addRandomTile();
+    renderBoard();
+    score = 0;
+    renderScore();
+  }
+
+  // Event listener for the New Game button
+  newGameButton.addEventListener("click", resetGame);
 
     // Start the game
     initializeBoard();
