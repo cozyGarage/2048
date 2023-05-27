@@ -1,0 +1,1 @@
+const scoreElement = document.querySelector('.score');
