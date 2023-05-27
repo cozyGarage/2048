@@ -1,4 +1,3 @@
-const scoreEl = document.querySelector('.score');
 
 document.addEventListener("DOMContentLoaded", () => {
     const board = document.querySelector(".game_board");
@@ -47,6 +46,40 @@ document.addEventListener("DOMContentLoaded", () => {
       };
       return colors[value] || "#cdc1b4";
     }
+    // Check if the game is over
+    function isGameOver() {
+        for (let i = 0; i < size; i++) {
+          for (let j = 0; j < size; j++) {
+            if (cells[i][j] === 0) {
+              return false;
+            }
+            if (
+              (i < size - 1 && cells[i][j] === cells[i + 1][j]) ||
+              (j < size - 1 && cells[i][j] === cells[i][j + 1])
+            ) {
+              return false;
+            }
+          }
+        }
+        return true;
+      }
+
+    // Update the score
+    function updateScore() {
+        let currentScore = 0;
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    currentScore += cells[i][j];
+                }
+                }
+                score = currentScore;
+        }     
+    
+      // Render the score
+      function renderScore() {
+        const scoreContainer = document.querySelector(".score");
+        scoreContainer.innerText = `Score: ${score}`;
+      }
   
     // Add a new random tile to the board
     function addRandomTile() {
@@ -202,6 +235,8 @@ function moveRight() {
         if (moved) {
             addRandomTile();
             renderBoard();
+            updateScore();
+            renderScore();
         }
     });
 
@@ -210,5 +245,6 @@ function moveRight() {
     addRandomTile();
     addRandomTile();
     renderBoard();
+    renderScore();
     });
   
